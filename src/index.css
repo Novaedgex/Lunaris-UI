@@ -2,47 +2,47 @@
 
 :root {
   /* ── backgrounds ── */
-  --l-bg:         #111111;  /* matte black — main app background */
-  --l-surface:    #1a1a1a;  /* slightly lighter — cards, sidebars */
-  --l-surface-2:  #222222;  /* elevated surfaces — inputs, pills */
-  --l-surface-3:  #2a2a2a;  /* hover states, selected items */
+  --lv-bg:         #111111;  /* matte black — main app background */
+  --lv-surface:    #1a1a1a;  /* slightly lighter — cards, sidebars */
+  --lv-surface-2:  #222222;  /* elevated surfaces — inputs, pills */
+  --lv-surface-3:  #2a2a2a;  /* hover states, selected items */
 
   /* ── neon purple accent family ── */
-  --l-purple:      #9840ea;  /* primary accent — buttons, active states */
-  --l-purple-dim:  #6d3fa0;  /* muted purple — hover, pressed, less aggressive */
-  --l-purple-glow: #c084fc;  /* lighter purple — highlights, icons */
+  --lv-purple:      #9840ea;  /* primary accent — buttons, active states */
+  --lv-purple-dim:  #6d3fa0;  /* muted purple — hover, pressed, less aggressive */
+  --lv-purple-glow: #c084fc;  /* lighter purple — highlights, icons */
 
   /* ── semantic colors ── */
-  --l-success:    #22c55e;  /* green — online, approved */
-  --l-danger:     #ef4444;  /* red — offline, denied, delete */
-  --l-warning:    #f59e0b;  /* amber — warnings, inactive */
-  --l-info:       #38bdf8;  /* sky blue — info, links */
+  --lv-success:    #22c55e;  /* green — online, approved */
+  --lv-danger:     #ef4444;  /* red — offline, denied, delete */
+  --lv-warning:    #f59e0b;  /* amber — warnings, inactive */
+  --lv-info:       #38bdf8;  /* sky blue — info, links */
 
   /* ── text ── */
-  --l-text:       #f5f5f5;  /* primary text */
-  --l-muted:      #737373;  /* secondary text, labels */
-  --l-subtle:     #404040;  /* very muted — dividers, placeholders */
+  --lv-text:       #f5f5f5;  /* primary text */
+  --lv-muted:      #737373;  /* secondary text, labels */
+  --lv-subtle:     #404040;  /* very muted — dividers, placeholders */
 
   /* ── borders — purple tinted ── */
-  --l-border:     #3b1f6b;  /* default border — dark purple tint */
-  --l-border-lit: #6d28d9;  /* hover/focus border — brighter purple */
-  --l-border-dim: #2a1550;  /* subtle border — very dark purple */
+  --lv-border:     #3b1f6b;  /* default border — dark purple tint */
+  --lv-border-lit: #6d28d9;  /* hover/focus border — brighter purple */
+  --lv-border-dim: #2a1550;  /* subtle border — very dark purple */
 
   /* ── shadows / glows ── */
-  --l-glow-sm:     0 0 10px rgba(168, 85, 247, 0.2);   /* subtle glow — default cards */
-  --l-glow-md:     0 0 20px rgba(168, 85, 247, 0.35);  /* medium glow — hover states */
-  --l-glow-lg:     0 0 35px rgba(168, 85, 247, 0.5);   /* strong glow — active/focused elements */
-  --l-glow-btn:    0 0 15px rgba(168, 85, 247, 0.4);   /* button glow — primary actions */
-  --l-glow-input:  0 0 12px rgba(168, 85, 247, 0.25);  /* input focus glow */
-  --l-glow-danger: 0 0 15px rgba(239, 68, 68, 0.35);   /* red glow — destructive actions */
-  --l-glow-success:0 0 15px rgba(34, 197, 94, 0.35);   /* green glow — success states */
+  --lv-glow-sm:     0 0 10px rgba(168, 85, 247, 0.2);   /* subtle glow — default cards */
+  --lv-glow-md:     0 0 20px rgba(168, 85, 247, 0.35);  /* medium glow — hover states */
+  --lv-glow-lg:     0 0 35px rgba(168, 85, 247, 0.5);   /* strong glow — active/focused elements */
+  --lv-glow-btn:    0 0 15px rgba(168, 85, 247, 0.4);   /* button glow — primary actions */
+  --lv-glow-input:  0 0 12px rgba(168, 85, 247, 0.25);  /* input focus glow */
+  --lv-glow-danger: 0 0 15px rgba(239, 68, 68, 0.35);   /* red glow — destructive actions */
+  --lv-glow-success:0 0 15px rgba(34, 197, 94, 0.35);   /* green glow — success states */
 
   /* ── sidebar icons ── */
-  --l-icon-default:  #737373;  /* inactive icon — same as muted text */
-  --l-icon-active:   #c084fc;  /* active icon — purple glow color */
-  --l-icon-hover:    #a855f7;  /* hover icon — primary purple */
-  --l-icon-danger:   #ef4444;  /* destructive action icon — red */
-  --l-icon-success:  #22c55e;  /* success state icon — green */
-  --l-icon-bg:       #1e1428;  /* active icon background — dark purple tint */
-  --l-icon-bg-hover: #2a1a3e;  /* hover icon background — slightly lighter purple tint */
+  --lv-icon-default:  #737373;  /* inactive icon — same as muted text */
+  --lv-icon-active:   #c084fc;  /* active icon — purple glow color */
+  --lv-icon-hover:    #a855f7;  /* hover icon — primary purple */
+  --lv-icon-danger:   #ef4444;  /* destructive action icon — red */
+  --lv-icon-success:  #22c55e;  /* success state icon — green */
+  --lv-icon-bg:       #1e1428;  /* active icon background — dark purple tint */
+  --lv-icon-bg-hover: #2a1a3e;  /* hover icon background — slightly lighter purple tint */
 }

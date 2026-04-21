@@ -8,8 +8,8 @@ function Lost() {
         }, 5000)
     }, [])
   return (
-    <div className='w-full h-screen flex items-center justify-center grid-2 bg-(--l-surface)'>
-        <h1 className='text-4xl font-bold text-(--l-text) font-serif' style={{textShadow: "var(--l-glow-sm)"}}>404 - Page not found</h1>
+    <div className='w-full h-screen flex items-center justify-center grid-2 bg-(--lv-surface)'>
+        <h1 className='text-4xl font-bold text-(--lv-text) font-serif' style={{textShadow: "var(--lv-glow-sm)"}}>404 - Page not found</h1>
     </div>
   )
 }

@@ -11,13 +11,13 @@ function App() {
   return (
    <Routes>
       <Route path="/" element={<AuthenticationScreen />} />
-      <Route path="*" element={<Lost />} />
-      <Route path="/verify" element={<Verify/>} />
+      <Route path="/account/verify" element={<Verify/>} />
       <Route element={<ProtectedRoute />} >
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/dashboard/database" element={<Database />} />
         <Route path="/dashboard/keys" element={<ApiKeys />} />
       </Route>
+      <Route path="*" element={<Lost />} />
    </Routes>
   )
 }

@@ -16,11 +16,10 @@ const Login = ({ onChange }) => {
       const data = await res.json()
       if(data.status === "error") {setError(data.message)} 
       else{
-        sessionStorage.setItem("uuid", data.user.uuid)
+        sessionStorage.setItem("token", data.token)
         sessionStorage.setItem("email", data.user.email)
         sessionStorage.setItem("username", data.user.username)
-        sessionStorage.setItem("token", data.token)
-        sessionStorage.setItem("gn_auth", "true")
+        sessionStorage.setItem("uuid", data.user.uuid)
 
         nav("/dashboard")
       }
@@ -38,8 +37,8 @@ const Login = ({ onChange }) => {
           <h1 className='text-sm text-(--lv-danger) font-serif mt-3'>{error}</h1>
         </div>
         <form onSubmit={handleSubmit} className='flex flex-col items-center justify-center w-full'>
-          <input className='w-80 h-10 pl-2 rounded-xl bg-(--lv-surface-2) border border-(--lv-border) outline-none font-serif text-(--lv-text) focus:border-(--lv-border-lit) mb-6' style={{boxShadow: "var(--lv-glow-input)"}} name='email' placeholder='Email' type='email' onChange={(e) => setEmail(e.target.value)} />
-          <input className='w-80 h-10 pl-2 rounded-xl bg-(--lv-surface-2) border border-(--lv-border) outline-none font-serif text-(--lv-text) focus:border-(--lv-border-lit)' style={{boxShadow: "var(--lv-glow-input)"}} name='password' placeholder='password' type='password' onChange={(e) => setPassword(e.target.value)} />
+          <input className='w-80 h-10 pl-2 rounded-xl bg-(--lv-surface-2) border border-(--lv-border) outline-none font-serif text-(--lv-text) focus:border-(--lv-border-lit) mb-6' style={{boxShadow: "var(--lv-glow-input)"}} name='email' placeholder='Email' type='email' onChange={(e) => setEmail(e.target.value)} required />
+          <input className='w-80 h-10 pl-2 rounded-xl bg-(--lv-surface-2) border border-(--lv-border) outline-none font-serif text-(--lv-text) focus:border-(--lv-border-lit)' style={{boxShadow: "var(--lv-glow-input)"}} name='password' placeholder='password' type='password' onChange={(e) => setPassword(e.target.value)} required />
           <button className='w-80 h-10 rounded-xl bg-(--lv-purple) text-(--lv-text) font-serif mt-6 hover:bg-(--lv-purple-dim)' style={{boxShadow: "var(--lv-glow-btn)"}} onClick={handleSubmit}>Login</button>
         </form>
         <h1 className='text-sm text-(--lv-muted) font-serif mt-3'>Don't have an account? <span onClick={onChange} className='text-(--lv-info) font-semibold cursor-pointer'>Sign up</span></h1>

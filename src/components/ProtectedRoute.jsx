@@ -2,9 +2,8 @@
 import { Navigate, Outlet } from 'react-router-dom'
 
 const ProtectedRoute = () => {
-  const isAuthed = sessionStorage.getItem('gn_auth') === 'true'
-
-  if (!isAuthed) return <Navigate to='/' replace />
+  const token = sessionStorage.getItem("token")
+  if (!token) return <Navigate to='/' replace />
 
   return <Outlet />
 }

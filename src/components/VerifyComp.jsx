@@ -17,11 +17,10 @@ const VerifyComp = () => {
       const data = await res.json()
       if(data.status === "error") {setError(data.message)} 
       else{
-        sessionStorage.setItem("uuid", data.user.uuid)
+        sessionStorage.setItem("token", data.token)
         sessionStorage.setItem("email", data.user.email)
         sessionStorage.setItem("username", data.user.username)
-        sessionStorage.setItem("token", data.token)
-        sessionStorage.setItem("gn_auth", "true")
+        sessionStorage.setItem("uuid", data.user.uuid)
 
         nav("/dashboard")
       }

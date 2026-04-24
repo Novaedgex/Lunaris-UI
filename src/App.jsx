@@ -12,7 +12,6 @@ function App() {
    <Routes>
       <Route path="/" element={<AuthenticationScreen />} />
       <Route path="/account/verify" element={<Verify/>} />
-      <Route path="/account/check" element={<NotVerified />} />
       <Route element={<ProtectedRoute />} >
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/dashboard/database" element={<Database />} />

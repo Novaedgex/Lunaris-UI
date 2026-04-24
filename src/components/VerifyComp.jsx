@@ -12,6 +12,7 @@ const VerifyComp = () => {
       // grab token from url
       const params = new URLSearchParams(window.location.search)
       const token = params.get('token')
+      const email = params.get('email')
 
       if (!token) {
         setStatus('error')

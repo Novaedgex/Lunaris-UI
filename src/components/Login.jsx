@@ -20,6 +20,7 @@ const Login = ({ onChange }) => {
         sessionStorage.setItem("email", data.user.email)
         sessionStorage.setItem("username", data.user.username)
         sessionStorage.setItem("uuid", data.user.uuid)
+        console.log(data.user)
 
         nav("/account/check")
       }

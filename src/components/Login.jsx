@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import NotVerified from './NotVerified.jsx';
 import Loading from '../pages/Loading'
 const Login = ({ onChange }) => {
     const nav = useNavigate();
@@ -8,10 +9,20 @@ const Login = ({ onChange }) => {
     const [password, setPassword] = useState('')
     const [error, setError] = useState(null)
     const [loading, setLoading] = useState(false)
+    const [LoadingMessage, setLoadingMessage] = useState('')
+    const checkVerification = async () => {
+            const UUID = sessionStorage.getItem("uuid")
+            const res = await fetch(`${import.meta.env.VITE_BACKEND}/user/check`, {method: "POST",headers: {"Content-Type": "application/json"},body: JSON.stringify({UUID})})
+            const data = await res.json()
+            if (data.status === "success") {
+                nav("/dashboard")
+            }
+        }
 
     const handleSubmit = async (e) => {
       e.preventDefault()
       setLoading(true)
+      setLoadingMessage("Authenticating user...")
       const res = await fetch(`${import.meta.env.VITE_BACKEND}/user/login`, {method: "POST",headers: {"Content-Type": "application/json"},body: JSON.stringify({ email, password })})
       const data = await res.json()
       if(data.status === "error") {setError(data.message)} 
@@ -20,14 +31,14 @@ const Login = ({ onChange }) => {
         sessionStorage.setItem("email", data.user.email)
         sessionStorage.setItem("username", data.user.username)
         sessionStorage.setItem("uuid", data.user.uuid)
-        console.log(data.user)
-
-        nav("/account/check")
+        setLoadingMessage("Checking email verification...")
+        if (!await checkVerification()) { setError("Email not verified"); setLoading(false); return <NotVerified /> }
+        else {nav("/dashboard")}
       }
       setLoading(false)
     }
   return (
-    loading ? <Loading message='Authenticating user...' /> :
+    loading ? <Loading message={LoadingMessage} /> :
     <div className='w-96 h-8/12 flex flex-col items-center bg-(--lv-surface) rounded-xl border-2 border-(--lv-border-lit)' style={{boxShadow: "var(--lv-glow-md)"}}>
         <div className='flex items-center justify-center gap-2 w-full h-28'>
           <img src='/icon.png' className='w-16 h-16 rounded-full border-2 border-(--lv-border-lit)' style={{boxShadow: "var(--lv-glow-md)"}} />

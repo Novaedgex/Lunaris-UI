@@ -6,7 +6,6 @@ import Database from "./pages/Database.jsx";
 import ApiKeys from "./pages/ApiKeys.jsx";
 import Lost from "./pages/404.jsx";
 import Verify from "./pages/verify.jsx";
-import NotVerified from "./pages/NotVerified.jsx"; 
 function App() {
 
   return (

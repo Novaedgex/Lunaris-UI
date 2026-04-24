@@ -1,7 +1,8 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-
+import { useNavigate } from 'react-router-dom';
 const NotVerifiedComp = () => {
+    const nav = useNavigate();
     useEffect(() => {
         const checkVerification = async () => {
             const email = localStorage.getItem("email")
@@ -14,7 +15,7 @@ const NotVerifiedComp = () => {
             })
             const data = await res.json()
             if (data.status === "success") {
-                window.location.href = "/dashboard"
+                nav("/dashboard")
             }
         }
         checkVerification()

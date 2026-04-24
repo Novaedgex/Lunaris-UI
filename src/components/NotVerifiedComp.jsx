@@ -5,13 +5,13 @@ const NotVerifiedComp = () => {
     const nav = useNavigate();
     useEffect(() => {
         const checkVerification = async () => {
-            const email = localStorage.getItem("email")
+            const UUID = localStorage.getItem("UUID")
             const res = await fetch(`${import.meta.env.VITE_BACKEND}/user/check`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify({email})
+                body: JSON.stringify({UUID})
             })
             const data = await res.json()
             if (data.status === "success") {

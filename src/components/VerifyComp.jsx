@@ -31,6 +31,8 @@ const VerifyComp = () => {
         if (data.status === 'error') {
           setStatus('error')
           setMessage(data.message)
+        }else {
+          setStatus('success')
         }
       } catch (e) {
         setStatus('error')

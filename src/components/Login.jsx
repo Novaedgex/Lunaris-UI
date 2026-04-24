@@ -21,7 +21,7 @@ const Login = ({ onChange }) => {
         sessionStorage.setItem("username", data.user.username)
         sessionStorage.setItem("uuid", data.user.uuid)
 
-        nav("/dashboard")
+        nav("/account/check")
       }
       setLoading(false)
     }

@@ -17,6 +17,9 @@ const NotVerifiedComp = () => {
             if (data.status === "success") {
                 nav("/dashboard")
             }
+            if (data.status === "error") {
+                console.log(data.message)
+            }
         }
         checkVerification()
     }, [])

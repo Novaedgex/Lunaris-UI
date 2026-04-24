@@ -24,7 +24,7 @@ const VerifyComp = () => {
         const res = await fetch(`${import.meta.env.VITE_BACKEND}/user/verify`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ token })
+          body: JSON.stringify({ token, email })
         })
         const data = await res.json()
 

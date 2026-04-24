@@ -5,7 +5,7 @@ const NotVerifiedComp = () => {
     const nav = useNavigate();
     useEffect(() => {
         const checkVerification = async () => {
-            const UUID = localStorage.getItem("uuid")
+            const UUID = sessionStorage.getItem("uuid")
             const res = await fetch(`${import.meta.env.VITE_BACKEND}/user/check`, {
                 method: "POST",
                 headers: {

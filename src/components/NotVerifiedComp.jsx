@@ -6,13 +6,7 @@ const NotVerifiedComp = () => {
     useEffect(() => {
         const checkVerification = async () => {
             const UUID = sessionStorage.getItem("uuid")
-            const res = await fetch(`${import.meta.env.VITE_BACKEND}/user/check`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({UUID})
-            })
+            const res = await fetch(`${import.meta.env.VITE_BACKEND}/user/check`, {method: "POST",headers: {"Content-Type": "application/json"},body: JSON.stringify({UUID})})
             const data = await res.json()
             if (data.status === "success") {
                 nav("/dashboard")

@@ -26,6 +26,7 @@ const Login = ({ onChange }) => {
         sessionStorage.setItem("email", data.user.email)
         sessionStorage.setItem("username", data.user.username)
         sessionStorage.setItem("uuid", data.user.uuid)
+        sessionStorage.setItem("type", data.user.type)
         nav("/dashboard")
       }
       setLoading(false)

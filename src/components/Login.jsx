@@ -22,7 +22,8 @@ const Login = ({ onChange }) => {
     const handleSubmit = async (e) => {
       e.preventDefault()
       setLoading(true)
-      setLoadingMessage("Authenticating user...")
+      setLoadingMessage("Checking email verification...")
+      if (!await checkVerification()) { setError("Email not verified"); setLoading(false); return <NotVerified /> }
       const res = await fetch(`${import.meta.env.VITE_BACKEND}/user/login`, {method: "POST",headers: {"Content-Type": "application/json"},body: JSON.stringify({ email, password })})
       const data = await res.json()
       if(data.status === "error") {setError(data.message)} 
@@ -31,9 +32,8 @@ const Login = ({ onChange }) => {
         sessionStorage.setItem("email", data.user.email)
         sessionStorage.setItem("username", data.user.username)
         sessionStorage.setItem("uuid", data.user.uuid)
-        setLoadingMessage("Checking email verification...")
-        if (!await checkVerification()) { setError("Email not verified"); setLoading(false); return <NotVerified /> }
-        else {nav("/dashboard")}
+        setLoadingMessage("Authenticating user...")
+        nav("/dashboard")
       }
       setLoading(false)
     }

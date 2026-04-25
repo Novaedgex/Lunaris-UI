@@ -19,7 +19,8 @@ const Login = ({ onChange }) => {
       setLoadingMessage("Authenticating user...")
       const res = await fetch(`${import.meta.env.VITE_BACKEND}/user/login`, {method: "POST",headers: {"Content-Type": "application/json"},body: JSON.stringify({ email, password })})
       const data = await res.json()
-      if(data.status === "error") {setLoadNotVerified(true)} 
+      if(data.status === "error" || data.message === "Invalid token") {setLoadNotVerified(true)} 
+      if (data.status === "error") {setError(data.message)}
       else{
         sessionStorage.setItem("token", data.token)
         sessionStorage.setItem("email", data.user.email)

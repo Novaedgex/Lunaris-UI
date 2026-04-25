@@ -10,29 +10,20 @@ const Login = ({ onChange }) => {
     const [error, setError] = useState(null)
     const [loading, setLoading] = useState(false)
     const [LoadingMessage, setLoadingMessage] = useState('')
-    const checkVerification = async () => {
-            const UUID = sessionStorage.getItem("uuid")
-            const res = await fetch(`${import.meta.env.VITE_BACKEND}/user/check`, {method: "POST",headers: {"Content-Type": "application/json"},body: JSON.stringify({UUID})})
-            const data = await res.json()
-            if (data.status === "success") {
-                nav("/dashboard")
-            }
-        }
+
 
     const handleSubmit = async (e) => {
       e.preventDefault()
       setLoading(true)
-      setLoadingMessage("Checking email verification...")
-      if (!await checkVerification()) { setError("Email not verified"); setLoading(false); return <NotVerified /> }
+      setLoadingMessage("Authenticating user...")
       const res = await fetch(`${import.meta.env.VITE_BACKEND}/user/login`, {method: "POST",headers: {"Content-Type": "application/json"},body: JSON.stringify({ email, password })})
       const data = await res.json()
-      if(data.status === "error") {setError(data.message)} 
+      if(data.status === "error" || data.message === "invalid token") {return <NotVerified/>} 
       else{
         sessionStorage.setItem("token", data.token)
         sessionStorage.setItem("email", data.user.email)
         sessionStorage.setItem("username", data.user.username)
         sessionStorage.setItem("uuid", data.user.uuid)
-        setLoadingMessage("Authenticating user...")
         nav("/dashboard")
       }
       setLoading(false)

@@ -12,6 +12,10 @@ const Login = ({ onChange }) => {
     const [LoadNotVerified, setLoadNotVerified] = useState(false)
     const [LoadingMessage, setLoadingMessage] = useState('')
 
+    const passwordReset = () => {
+      fetch(`${import.meta.env.VITE_BACKEND}/user/password-reset`, {method: "POST",headers: {"Content-Type": "application/json"},body: JSON.stringify({ email })})
+    }
+
 
     const handleSubmit = async (e) => {
       e.preventDefault()
@@ -49,7 +53,7 @@ const Login = ({ onChange }) => {
           <button className='w-80 h-10 rounded-xl bg-(--lv-purple) text-(--lv-text) font-serif mt-6 hover:bg-(--lv-purple-dim)' style={{boxShadow: "var(--lv-glow-btn)"}} onClick={handleSubmit}>Login</button>
         </form>
         <h1 className='text-sm text-(--lv-muted) font-serif mt-3'>Don't have an account? <span onClick={onChange} className='text-(--lv-info) font-semibold cursor-pointer'>Sign up</span></h1>
-        {/* <h1 className='text-sm text-(--lv-muted) font-serif mt-3'>Forgot password? <span className='text-(--lv-info) font-semibold cursor-pointer'>Reset</span></h1> */}
+        <h1 className='text-sm text-(--lv-muted) font-serif mt-3'>Forgot password? <span className='text-(--lv-info) font-semibold cursor-pointer' onClick={passwordReset}>Reset</span></h1>
     </div>
   )
 }

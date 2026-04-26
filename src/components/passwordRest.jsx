@@ -1,6 +1,6 @@
 import React from 'react'
-
-const passwordRest = () => {
+import { useState } from 'react'
+const PasswordRest = () => {
   const [email, setEmail] = useState('')
   const sendEmail = () => {
     fetch(`${import.meta.env.VITE_BACKEND}/user/password-reset`, {method: "POST",headers: {"Content-Type": "application/json"},body: JSON.stringify({ email })})
@@ -27,4 +27,4 @@ const passwordRest = () => {
   )
 }
 
-export default passwordRest
+export default PasswordRest

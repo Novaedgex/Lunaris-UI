@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import NotVerified from './NotVerified.jsx';
 import Loading from '../pages/Loading'
+import passwordReset from './PasswordReset.jsx';
 const Login = ({ onChange }) => {
     const nav = useNavigate();
     const [email, setEmail] = useState('')
@@ -11,9 +12,10 @@ const Login = ({ onChange }) => {
     const [loading, setLoading] = useState(false)
     const [LoadNotVerified, setLoadNotVerified] = useState(false)
     const [LoadingMessage, setLoadingMessage] = useState('')
+    const [ PasswordChange, setPasswordChange] = useState(false)
 
     const passwordReset = () => {
-      fetch(`${import.meta.env.VITE_BACKEND}/user/password-reset`, {method: "POST",headers: {"Content-Type": "application/json"},body: JSON.stringify({ email })})
+      setPasswordChange(true)
     }
 
 
@@ -37,6 +39,7 @@ const Login = ({ onChange }) => {
     }
   return (
     loading ? <Loading message={LoadingMessage} /> :
+    passwordChange ? <passwordReset /> :
     LoadNotVerified ? <NotVerified /> :
     <div className='w-96 h-8/12 flex flex-col items-center bg-(--lv-surface) rounded-xl border-2 border-(--lv-border-lit)' style={{boxShadow: "var(--lv-glow-md)"}}>
         <div className='flex items-center justify-center gap-2 w-full h-28'>

@@ -1,7 +1,13 @@
 import React from 'react'
 import Sidebar from '../components/Sidebar'
 import { CgProfile } from "react-icons/cg";
+import usePlayerStore from '../store/usePlayerStore.js';
 function Dashboard() {
+  const {balance, reputation, total_income, total_expenses} = usePlayerStore()
+  console.log(balance)
+  console.log(reputation)
+  console.log(total_expenses)
+  console.log(total_income)
   return (
     <div className='w-full h-screen bg-(--lv-surface) flex'>
       <Sidebar active='dashboard'/>

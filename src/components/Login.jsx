@@ -4,8 +4,10 @@ import { useNavigate } from 'react-router-dom';
 import NotVerified from './NotVerified.jsx';
 import Loading from '../pages/Loading'
 import PasswordRest from './passwordRest.jsx';
+import usePlayerStore from '../store/usePlayerStore.js';
 const Login = ({ onChange }) => {
     const nav = useNavigate();
+    const {hydrate} = usePlayerStore()
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [error, setError] = useState(null)
@@ -33,6 +35,12 @@ const Login = ({ onChange }) => {
         sessionStorage.setItem("username", data.user.username)
         sessionStorage.setItem("uuid", data.user.uuid)
         sessionStorage.setItem("type", data.user.type)
+        hydrate({
+          uuid: data.user.uuid,
+          username: data.user.username,
+          balance: data.user.balance,
+          reputation: data.user.reputation,
+        })
         nav("/dashboard")
       }
       setLoading(false)

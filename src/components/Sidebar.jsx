@@ -1,7 +1,7 @@
 import React from 'react'
 import { MdDashboard } from "react-icons/md";
-import { FaDatabase, FaKey } from "react-icons/fa";
-import { CgProfile } from "react-icons/cg";
+import { FaKey } from "react-icons/fa";
+import { FaWarehouse } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
 
 const Sidebar = ({ active = "dashboard" }) => {
@@ -12,8 +12,7 @@ const Sidebar = ({ active = "dashboard" }) => {
         <img src='/icon.png' className='w-12 h-12 mb-4  rounded-full border-2 border-(--lv-border-lit)' style={{boxShadow: "var(--lv-glow-md)"}} />
         <h1 className='text-lg font-bold text-(--lv-text) font-serif mb-6' style={{textShadow: "var(--lv-glow-sm)"}}>Lunaris VPS</h1>
         <SidebarItem icon={<MdDashboard size={28}/>} label="Dashboard" isActive={active === "dashboard"} onClick={() => navigate("/dashboard")} />
-        <SidebarItem icon={<FaDatabase size={23}/>} label="Database" isActive={active === "database"} onClick={() => navigate("/dashboard/database")} />
-        <SidebarItem icon={<FaKey size={23}/>} label="Api keys" isActive={active === "keys"} onClick={() => navigate("/dashboard/keys")} />
+        <SidebarItem icon={<FaWarehouse size={23}/>} label="Data Centers" isActive={active === "datacenters"} onClick={() => navigate("/datacenters")} />
     </div>
   )
 }
